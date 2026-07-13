@@ -7,12 +7,21 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
+// Endpoint 1
 app.get("/", (req, res) => {
-  res.send("Hello, World!");
+  res.json({
+    success: true,
+    message: "Hello from my backend!",
+  });
 });
 
-app.get("/health", (req, res) => {
-  res.json({ status: "OK", message: "Server is healthy" });
+// Endpoint 2
+app.get("/profile", (req, res) => {
+  res.json({
+    name: "Kamran",
+    role: "Backend Engineering Intern",
+    learning: "Express.js",
+  });
 });
 
 app.listen(PORT, () => {
